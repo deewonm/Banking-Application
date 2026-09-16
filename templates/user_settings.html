@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <header>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Home</a>
+            <a href="{{ url_for('deposit') }}">Deposit Funds</a>
+            <a href="{{ url_for('withdraw') }}">Withdraw Funds</a>
+            <a href="{{ url_for('transfer_funds') }}">Transfer Funds</a>
+            <a href="{{ url_for('transaction_history') }}">Transaction History</a>
+            <a href="{{ url_for('notifications') }}">Notifications</a>
+            <a href="{{ url_for('user_settings') }}">Settings</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="user-settings">
+            <h2>User Settings</h2>
+            <form action="" method="POST" novalidate>
+                {{ form.hidden_tag() }}
+                {{ form.status }}
+                {{ form.submit }}
+            </form>
+            <p>Current account status: {{ account.status }}d</p>
+
+            {% if status_message %}
+                <p>{{ status_message }}</p>
+            {% endif %}
+        </section>
+
+        <section class="delete">
+            <h2>Delete Your Account</h2>
+            <form action="" method="POST" novalidate>
+                {{ delete_form.hidden_tag() }}
+
+                {{ delete_form.confirm() }}
+                {{ delete_form.confirm.label }}
+                <br />
+                <br />
+                {{ delete_form.submit() }}
+
+                {% if delete_message %}
+                    {{ delete_message }}
+                {% endif %}
+            </form>
+        </section>
+    </main>
+
+{% endblock %}

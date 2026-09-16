@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Withdraw Your Funds</h1>
+
+    {% if message %}
+        {{ message }}
+    {% endif %}
+
+    {% if error %}
+        {{ error }}
+    {% endif %}
+
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.withdraw.label }}
+        {{ form.withdraw(placeholder="Withdraw Amount: 0.00") }}
+        {{ form.cancel() }}
+        {{ form.submit() }}
+    </form>
+
+{% endblock %}

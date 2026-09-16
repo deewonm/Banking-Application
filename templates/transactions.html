@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <header>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Home</a>
+            <a href="{{ url_for('deposit') }}">Deposit Funds</a>
+            <a href="{{ url_for('withdraw') }}">Withdraw Funds</a>
+            <a href="{{ url_for('transfer_funds') }}">Transfer Funds</a>
+            <a href="{{ url_for('transaction_history') }}">Transaction History</a>
+            <a href="{{ url_for('notifications') }}">Notifications</a>
+            <a href="{{ url_for('user_settings') }}">Settings</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Transaction History</h1>
+        <table>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Date</th>
+            </tr>
+
+            {% for transaction in transactions %}
+
+            <tr>
+                <td>{{ transaction["id"] }}</td>
+                <td>{{ transaction["amount"] }}</td>
+                <td>{{ transaction["description"] }}</td>
+                <td>{{ transaction["date"] }}</td>
+            </tr>
+
+            {% endfor %}
+        </table>
+    </main>
+    
+{% endblock %}

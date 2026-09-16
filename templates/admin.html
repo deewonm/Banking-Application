@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Admin Dashboard</h1>
+    <p>Welcome to the admin dashboard. Explore admin privilages below!</p>
+    <p><a href="{{ url_for('logout') }}" class="admin-logout">Logout</a></p>
+
+    {% if message %}
+        <p><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>User</th>
+            <th>IBAN</th>
+            <th>Account Number</th>
+            <th>Balance</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for account in accounts %}
+        <tr>
+            <td>{{ account.user_id }}</td>
+            <td>{{ account.iban }}</td>
+            <td>{{ account.account_number }}</td>
+            <td>{{ account.balance }}</td>
+            <td>{{ account.status }}</td>
+            <td class="admin">
+            
+            {% if account.user_id != "cheeseburger" %}
+                
+                <form class="admin-form" method="POST" action="{{ url_for('admin_deposit', user_id=account.user_id)}}">
+                    {{ deposit_form.hidden_tag() }}
+                    {{ deposit_form.amount() }}
+                    {{ deposit_form.submit() }}
+                </form>
+
+                <form class="admin-form" method="POST" action="{{ url_for('admin_withdraw', user_id=account.user_id)}}">
+                    {{ withdraw_form.hidden_tag() }}
+                    {{ withdraw_form.amount() }}
+                    {{ withdraw_form.submit() }}
+                </form>
+
+                <form class="admin-form" method="POST" action="{{ url_for('admin_freeze', user_id=account.user_id)}}">
+                    {{ freeze_form.hidden_tag() }}
+                    {{ freeze_form.submit() }}
+                </form>
+
+                <form class="admin-form" method="POST" action="{{ url_for('admin_delete', user_id=account.user_id)}}">
+                    {{ delete_form.hidden_tag() }}
+                    {{ delete_form.submit(id="admin-danger") }}
+                </form>
+
+                <form class="admin-form" method="POST" action="{{ url_for('admin_notification', user_id=account.user_id)}}">
+                    {{ notify_form.hidden_tag() }}
+                    {{ notify_form.message() }}
+                    {{ notify_form.submit() }}
+                </form>
+
+
+            {% else %}
+                <p>Cannot alter admin account!</p>
+            {% endif %}
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

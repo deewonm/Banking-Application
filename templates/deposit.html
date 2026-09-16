@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Deposit Your Funds</h1>
+    {% if message %}
+        {{ message }}
+    {% endif %}
+
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.deposit.label }}
+        {{ form.deposit(placeholder="Deposit Amount: 0.00") }}
+        {{ form.cancel() }}
+        {{ form.submit() }}
+    </form>
+
+{% endblock %}
+
+    

@@ -1,0 +1,422 @@
+
+/* main colour scheme for the website, i got inspo from here https://www.freepik.com/free-vector/payment-gateway-ui-mobile-app-design_11952496.htm#fromView=keyword&page=1&position=0&uuid=3da8c9f4-61d4-4e41-8889-7d06048af789&query=Bank+app+ui */
+html {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --accent-gold: #fbbf24;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* navbar */
+nav {
+    background: #1e293b;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-gold);
+}
+
+h1, h1 + p {
+    margin-top: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 + p {
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 a {
+    display: inline-block;
+    color: #babbbb;
+    background: rgb(142, 0, 189);
+    padding: 15px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+caption {
+    font-weight: bold;
+    padding: 1em;
+    margin-right: 80%;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.05);
+    text-align: left;
+    padding: 15px;
+    color: var(--accent-gold);
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+
+strong {
+    color: var(--accent-gold);
+}
+
+section {
+    display: inline-block;
+    vertical-align: top;
+    align-items: center;
+    width: 20%;            
+    margin: 2%;      
+    box-sizing: border-box; 
+}
+
+form label {
+    display: flex;
+    margin: 15px 25%;
+    font-weight: bold;
+    color: var(--text);
+    font-size: 1.1rem;
+    padding-top: 0.5em;
+}
+
+/* css for the WTforms, https://stackoverflow.com/questions/68230545/how-to-style-wtform-fields-using-custom-css-classes */
+form input:not([type="submit"]) {
+    width: 25%;
+    padding: 20px 20px;
+    margin: 20px 37%;
+    background: #310045;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+form input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 5px rgba(251, 191, 36, 0.3);
+}
+
+input[type="submit"] {
+    width: 30%; 
+    padding: 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    margin-top: 5em;
+    margin-left: 12.5%;
+    transition: all 0.2s;
+    display: inline-block;
+    justify-content: center;
+}
+
+input[type="submit"]:last-of-type {
+    background: rgb(142, 0, 189);
+    color: var(--bg);
+}
+
+input[type="submit"]:first-of-type {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: var(--card-bg);
+    border: 1px rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 15px;
+    margin: 10px 15%;
+    font-weight: bold;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    color: var(--accent-gold);
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    margin-top: 4em;
+}
+
+#home h1 {
+    font-size: 3.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+#home p:first-of-type {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+#home p a {
+    display: inline-block;
+    width: 250px;
+    padding: 18px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border);
+}
+
+#home p:nth-of-type(2) a {
+    background: var(--glass);
+    color: var(--text-primary);
+}
+
+#home p:nth-of-type(3) a {
+    background: rgb(142, 0, 189);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(142, 0, 189, 0.3);
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    margin-top: 4em;
+}
+
+.login input[type="submit"] {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    margin-top: 4em;
+}
+
+.register input[type="submit"] {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* I got inspiration for the design of this bank card from google gemini */
+/* i used snippets of code from the following video to create it , https://www.youtube.com/watch?v=pLwEasHW3_I&t=7s */
+#bank-card {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    width: 450px;
+    height: 250px;
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin: 30px 0;
+    margin-left: 12%;
+    margin-right: 1%;
+    border: 1px solid var(--border);
+}
+
+#chip {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(135deg, #d4af37, #f1d592);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#card-number {
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    font-family: monospace;
+    margin: 10px 0;
+}
+
+#card-holder {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+#expiry {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-family: monospace;
+}
+
+#card-info {
+    font-weight: bold;
+}
+/* code snippet ends here */
+
+section.user-settings {
+    margin-left: 25%;
+}
+
+section.user-settings form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+section.user-settings h2 {
+    text-align: center;
+}
+
+.user-settings p {
+    margin-left: 20%;
+    font-weight: bold;
+}
+
+.user-settings input[type="submit"] {
+    margin-right: 2em;
+    margin-left: 30%;
+    margin-top: 6.5em;
+    padding-right: 6em;
+    padding-left: 2em;
+}
+
+.delete form {
+    margin-right: 6em;
+}
+
+.user-settings form input:not([type="submit"]) {
+    margin: 0;
+}
+
+.delete input[type="submit"] {
+    background-color: red;
+    padding-right: 8em;
+    margin-top: 5.5em;
+}
+
+.admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.admin-form {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin: 0;
+}
+
+.admin-form input[type="text"], .admin-form input[type="number"] {
+    width: 80px;
+    padding: 6px 8px;
+    margin: 0;
+    font-size: 0.85rem;
+    background: #310045;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+}
+
+.admin-form input[type="submit"] {
+    width: auto;
+    padding: 6px 10px;
+    margin: 0;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    background: rgb(142, 0, 189);
+    color: white;
+}
+
+#admin-danger {
+    background: #dc2626;
+}
+
+.admin-form textarea,
+.admin-form input.admin-input {
+    width: 120px;
+    padding: 6px;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.admin-logout {
+    position: absolute;
+    top: 8em;
+    left: 13%;
+    display: inline-block;
+    background: rgb(142, 0, 189);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+
+

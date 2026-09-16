@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<header>
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Home</a>
+        <a href="{{ url_for('deposit') }}">Deposit Funds</a>
+        <a href="{{ url_for('withdraw') }}">Withdraw funds</a>
+        <a href="{{ url_for('transfer_funds') }}">Transfer Funds</a>
+        <a href="{{ url_for('transaction_history') }}">Transaction History</a>
+        <a href="{{ url_for('notifications') }}">Notifications</a>
+        <a href="{{ url_for('user_settings') }}">Settings</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Welcome to Zero Trust Online Banking Dashboard</h1>
+    <p>Check your balances, recent transactions, and manage your funds quickly!</p>
+
+    <section id="bank-card">
+        <p></p>
+        <header id="chip"></header>
+        <p id="card-number">1234 5678 9012 3456</p>
+        <p id="card-holder">{{ card_name | upper }}</p>
+        <p id="expiry">08/2099</p>
+    </section>
+    <section id="card-info">
+        <p><strong>IBAN:</strong> {{ iban }}</p>
+        <p><strong>BIC:</strong>{{ bic }}</p>
+        <p><strong>Account Number:</strong>{{ account_number }}</p>
+        <p><strong>Balance: </strong>€{{ balance }}</p>
+    </section>
+    <section>
+        <h3><a href="{{ url_for('deposit') }}">Deposit Funds</a></h3>
+        <h3><a href="{{ url_for('withdraw') }}">Withdraw Funds</a></h3>
+        <h3><a href="{{ url_for('transfer_funds') }}">Transfer Funds</a></h3>
+    </section>
+
+
+    <table>
+        <caption>Recent Transaction History</caption>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Description</th>
+        </tr>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t.id }}</td>
+            <td>{{ t.amount }}</td>
+            <td>{{ t.date }}</td>
+            <td>{{ t.description }}</td>
+        </tr>
+        <tr>
+            {% else %}
+            <td colspan="4">No Transaction data found</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</main>
+
+
+{% endblock %}

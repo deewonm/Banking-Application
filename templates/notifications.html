@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <header>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Home</a>
+            <a href="{{ url_for('deposit') }}">Deposit Funds</a>
+            <a href="{{ url_for('withdraw') }}">Withdraw Funds</a>
+            <a href="{{ url_for('transfer_funds') }}">Transfer Funds</a>
+            <a href="{{ url_for('transaction_history') }}">Transaction History</a>
+            <a href="{{ url_for('notifications') }}">Notifications</a>
+            <a href="{{ url_for('user_settings') }}">Settings</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <h1>View your recent Notifications</h1>
+
+        {% if notifications %}
+            <ul>
+            {% for notification in notifications %}
+                <li>
+                    {{ notification.message}} | {{ notification.date }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No notifcations at this time</p>
+        {% endif %}
+    </main>
+
+{% endblock %}

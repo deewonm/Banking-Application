@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Transfer funds</h1>
+
+    {% if message %}
+        {{ message }}
+    {% endif %}
+
+    {% if error %}
+        {{ error }}
+    {% endif %}
+
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+
+        <p>
+            {{ form.receiver_user.label }}
+            {{ form.receiver_user(placeholder="Receiver User ID") }}
+        </p>
+        <p>
+            {{ form.receiver_iban.label }}
+            {{ form.receiver_iban(placeholder="Receiver IBAN") }}
+        </p>
+        <p>
+            {{ form.transfer.label }}
+            {{ form.transfer(placeholder="Transfer Amount") }}
+        </p>
+        <p>
+            {{ form.confirm_transfer.label }}
+            {{ form.confirm_transfer(placeholder="Confirm Transfer Amount") }}
+        </p>
+        <p>
+            {{ form.message.label }}
+            {{ form.message(placeholder="Enter a message to the recipient") }}
+        </p>
+        <p>
+            {{ form.cancel() }}
+            {{ form.submit() }}
+        </p>
+    </form>
+
+{% endblock %}
